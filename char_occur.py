@@ -2,7 +2,6 @@
 #occurencies of a character
 def char_occur(char,str):
 	occurrencies = str.count(char)
-	#print(occurrencies)
 	return occurrencies
 
 str = input("Enter a string:" )
