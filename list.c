@@ -87,8 +87,6 @@ int main(int argc, char const *argv[])
 }
 
 
-
-
 int compareEmployee(Employee *e1,Employee *e2)
 {
 	return strcmp(e1->name,e2->name);
@@ -168,7 +166,7 @@ void delete(Linkedlist *list, Node *node)
 
 void displayLinkedList(Linkedlist *list,DISPLAY display)
 {
-	printf("/nLinked List\n");
+	printf("\nLinked List\n");
 	Node *current = list->head;
 	while(current != NULL){
 		display(current->data);
