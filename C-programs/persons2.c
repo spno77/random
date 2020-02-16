@@ -5,7 +5,6 @@
 #include <time.h>
 #include <unistd.h>
 
-
 struct person
 {
 	char *name;
@@ -14,6 +13,39 @@ struct person
 	char *origin;
 };
 
+//creates a person from a string
+struct person *person_create(char *str);
+
+//prints a person
+void person_print(struct person *p);
+
+//free a person
+void person_free(struct person *p);
+
+int main(int argc, char const *argv[])
+{
+	char *persons[] = {"nina;fuentes;24;madrit","tomas;tomasso;43;liverpool","jack;jones;33;boston"};
+
+	struct person *p;
+
+	for(int i = 0; i < 3; i++)
+	{	
+
+		char *str = malloc(strlen(persons[i]) + 1);
+		strcpy(str,persons[i]);
+	
+		p = person_create(str);
+
+		person_print(p);
+
+		person_free(p);
+
+		free(str);
+
+	}
+
+	return 0;
+}
 
 //creates a person from a string
 struct person *person_create(char *str)
@@ -65,29 +97,4 @@ void person_free(struct person *p)
 	free(p->origin);
 	free(p);
 
-}
-
-int main(int argc, char const *argv[])
-{
-	char *persons[] = {"nina;fuentes;24;madrit","tomas;tomasso;43;liverpool","jack;jones;33;boston"};
-
-	struct person *p;
-
-	for(int i = 0; i < 3; i++)
-	{	
-
-		char *str = malloc(strlen(persons[i]) + 1);
-		strcpy(str,persons[i]);
-	
-		p = person_create(str);
-
-		person_print(p);
-
-		person_free(p);
-
-		free(str);
-
-	}
-
-	return 0;
 }
